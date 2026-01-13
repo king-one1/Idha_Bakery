@@ -68,20 +68,23 @@ function pesanWhatsApp() {
         return;
     }
 
-    let pesan = "Halo, saya ingin memesan kue Lebaran:%0A";
+    const nomorWA = "628995289017"; // nomor Anda (SUDAH BENAR)
+
+    let pesan = "Halo, saya ingin memesan kue Lebaran:\n";
 
     daftarPesanan.forEach((item, i) => {
-        pesan += `${i + 1}. ${item.nama} - ${item.jumlah} (Rp${item.subtotal})%0A`;
+        pesan += `${i + 1}. ${item.nama} - ${item.jumlah} (Rp${item.subtotal})\n`;
     });
 
-    pesan += `%0ATotal sementara: Rp${totalHarga}%0A`;
+    pesan += `\nTotal sementara: Rp${totalHarga}\n`;
     pesan += "Mohon konfirmasi ketersediaan. Terima kasih.";
 
-    window.open(
-        `https://wa.me/628995289017?text=${pesan}`,
-        "_blank"
-    );
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+
+    // ⬇️ INI KUNCI UTAMA (LEBIH AMAN DARI window.open)
+    window.location.href = url;
 }
+
 
 function filterKue() {
     const keyword = document.getElementById("searchInput").value.toLowerCase();
@@ -92,4 +95,5 @@ function filterKue() {
 }
 
 tampilkanKatalog();
+
 
