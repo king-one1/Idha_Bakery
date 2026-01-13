@@ -81,9 +81,10 @@ function pesanWhatsApp() {
 
     const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
 
-    // ⬇️ INI KUNCI UTAMA (LEBIH AMAN DARI window.open)
+    // ⬇️ INI KUNCI UTAMA (ANTI BLOKIR SAFARI)
     window.location.href = url;
 }
+
 
 
 function filterKue() {
@@ -95,5 +96,6 @@ function filterKue() {
 }
 
 tampilkanKatalog();
+
 
 
