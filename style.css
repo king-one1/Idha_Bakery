@@ -107,7 +107,6 @@ header input {
     border-radius: 8px;
 }
 
-/* WHATSAPP FLOATING ICON */
 .wa-float {
     position: fixed;
     bottom: 20px;
@@ -118,38 +117,15 @@ header input {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* ICON */
 .wa-float img {
     width: 32px;
     height: 32px;
-}
-
-/* EFEK HOVER */
-.wa-float:hover {
-    transform: scale(1.1);
-    transition: 0.2s ease-in-out;
-}
-
-/* MOBILE OPTIMIZATION */
-@media (max-width: 480px) {
-    .wa-float {
-        width: 56px;
-        height: 56px;
-        bottom: 15px;
-        right: 15px;
-    }
-
-    .wa-float img {
-        width: 28px;
-        height: 28px;
-    }
 }
 
 
@@ -160,5 +136,6 @@ header input {
         height: 120px;
     }
 }
+
 
 
