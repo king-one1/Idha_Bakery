@@ -68,7 +68,7 @@ function pesanWhatsApp() {
         return;
     }
 
-    const nomorWA = "628995289017"; // nomor Anda (SUDAH BENAR)
+    const nomorWA = "6282130033360"; // nomor Anda (SUDAH BENAR)
 
     let pesan = "Halo, saya ingin memesan kue Lebaran:\n";
 
@@ -96,6 +96,7 @@ function filterKue() {
 }
 
 tampilkanKatalog();
+
 
 
 
