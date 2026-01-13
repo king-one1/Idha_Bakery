@@ -78,7 +78,7 @@ function pesanWhatsApp() {
     pesan += "Mohon konfirmasi ketersediaan. Terima kasih.";
 
     window.open(
-        `https://wa.me/628xxxxxxxxxx?text=${pesan}`,
+        `https://wa.me/628995289017?text=${pesan}`,
         "_blank"
     );
 }
@@ -92,3 +92,4 @@ function filterKue() {
 }
 
 tampilkanKatalog();
+
