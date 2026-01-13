@@ -1,40 +1,33 @@
-// DATA KUE (BISA 30 ATAU LEBIH)
 const dataKue = [
     { nama: "Nastar Keju", harga: 85000, gambar: "nastar.jpg" },
     { nama: "Kastengel", harga: 90000, gambar: "kastengel.jpg" },
     { nama: "Putri Salju", harga: 80000, gambar: "putri-salju.jpg" },
     { nama: "Lidah Kucing", harga: 75000, gambar: "lidah-kucing.jpg" },
-    { nama: "Lidah Kucing", harga: 75000, gambar: "lidah-kucing.jpg" },
-    { nama: "Lidah Kucing", harga: 75000, gambar: "lidah-kucing.jpg" },
-    { nama: "Lidah Kucing", harga: 75000, gambar: "lidah-kucing.jpg" },
-    { nama: "Lidah Kucing", harga: 75000, gambar: "lidah-kucing.jpg" },
-    { nama: "Lidah Kucing", harga: 75000, gambar: "lidah-kucing.jpg" },
-    { nama: "Lidah Kucing", harga: 75000, gambar: "lidah-kucing.jpg" },
-    { nama: "Lidah Kucing", harga: 75000, gambar: "lidah-kucing.jpg" },
-    // ... tambahkan sampai 30 kue
+    // tambah hingga 30 kue
 ];
 
 let daftarPesanan = [];
 let totalHarga = 0;
 
-// MENAMPILKAN KATALOG (LOOPING)
-function tampilkanKatalog() {
+function tampilkanKatalog(data = dataKue) {
     const katalog = document.getElementById("katalog");
+    katalog.innerHTML = "";
 
-    dataKue.forEach((kue, index) => {
+    data.forEach((kue, index) => {
         katalog.innerHTML += `
             <div class="kue">
                 <img src="images/${kue.gambar}">
                 <h3>${kue.nama}</h3>
-                <p>Harga: Rp${kue.harga}</p>
+                <p>Rp${kue.harga}</p>
                 <input type="number" id="jumlah-${index}" min="0" placeholder="Jumlah">
-                <button onclick="tambahPesanan(${index})">Tambah Pesanan</button>
+                <button onclick="tambahPesanan(${index})">
+                    Tambah Pesanan
+                </button>
             </div>
         `;
     });
 }
 
-// TAMBAH PESANAN
 function tambahPesanan(index) {
     const jumlah = parseInt(document.getElementById(`jumlah-${index}`).value);
 
@@ -48,29 +41,27 @@ function tambahPesanan(index) {
 
     daftarPesanan.push({
         nama: kue.nama,
-        jumlah: jumlah,
-        subtotal: subtotal
+        jumlah,
+        subtotal
     });
 
     totalHarga += subtotal;
     tampilkanRingkasan();
 }
 
-// RINGKASAN
 function tampilkanRingkasan() {
     const ringkasan = document.getElementById("ringkasan");
     ringkasan.innerHTML = "";
 
     daftarPesanan.forEach(item => {
         ringkasan.innerHTML += `
-            <li>${item.nama} - ${item.jumlah} toples (Rp${item.subtotal})</li>
+            <li>${item.nama} - ${item.jumlah} (Rp${item.subtotal})</li>
         `;
     });
 
     document.getElementById("total").textContent = totalHarga;
 }
 
-// WHATSAPP
 function pesanWhatsApp() {
     if (daftarPesanan.length === 0) {
         alert("Belum ada pesanan!");
@@ -80,17 +71,24 @@ function pesanWhatsApp() {
     let pesan = "Halo, saya ingin memesan kue Lebaran:%0A";
 
     daftarPesanan.forEach((item, i) => {
-        pesan += `${i + 1}. ${item.nama} - ${item.jumlah} toples (Rp${item.subtotal})%0A`;
+        pesan += `${i + 1}. ${item.nama} - ${item.jumlah} (Rp${item.subtotal})%0A`;
     });
 
     pesan += `%0ATotal sementara: Rp${totalHarga}%0A`;
     pesan += "Mohon konfirmasi ketersediaan. Terima kasih.";
 
     window.open(
-        `https://wa.me/628995289017?text=${pesan}`,
+        `https://wa.me/628xxxxxxxxxx?text=${pesan}`,
         "_blank"
     );
 }
 
-// AUTO JALAN SAAT HALAMAN DIBUKA
+function filterKue() {
+    const keyword = document.getElementById("searchInput").value.toLowerCase();
+    const hasil = dataKue.filter(kue =>
+        kue.nama.toLowerCase().includes(keyword)
+    );
+    tampilkanKatalog(hasil);
+}
+
 tampilkanKatalog();
