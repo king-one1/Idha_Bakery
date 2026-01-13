@@ -2,33 +2,38 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Idha Bakery</title>
+
+    <!-- WAJIB untuk mobile-friendly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Katalog Kue Lebaran</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Idha Bakery</h1>
+<header>
+    <h1>Katalog Kue Lebaran</h1>
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Cari kue..." 
+        onkeyup="filterKue()"
+    >
+</header>
 
-<input 
-    type="text" 
-    id="searchInput" 
-    placeholder="Cari kue..." 
-    onkeyup="filterKue()"
-    class="search"
-/>
-    
+<main>
+    <div id="katalog" class="katalog"></div>
 
-<div id="katalog" class="katalog"></div>
-
-<hr>
-
-<h2>Ringkasan Pesanan</h2>
-<ul id="ringkasan"></ul>
-<p><strong>Total: Rp<span id="total">0</span></strong></p>
-
-<button class="wa" onclick="pesanWhatsApp()">Pesan via WhatsApp</button>
+    <section class="ringkasan-box">
+        <h2>Ringkasan Pesanan</h2>
+        <ul id="ringkasan"></ul>
+        <p class="total">Total: Rp<span id="total">0</span></p>
+        <button class="wa" onclick="pesanWhatsApp()">
+            Pesan via WhatsApp
+        </button>
+    </section>
+</main>
 
 <script src="script.js"></script>
 </body>
 </html>
-
