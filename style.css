@@ -107,31 +107,51 @@ header input {
     border-radius: 8px;
 }
 
-/* STICKY WHATSAPP BUTTON */
-.wa-sticky {
+/* WHATSAPP FLOATING ICON */
+.wa-float {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #25D366;
-    color: white;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
     border: none;
-    border-radius: 50px;
-    padding: 14px 20px;
-    font-size: 16px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* KHUSUS MOBILE */
+/* ICON */
+.wa-float img {
+    width: 32px;
+    height: 32px;
+}
+
+/* EFEK HOVER */
+.wa-float:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+/* MOBILE OPTIMIZATION */
 @media (max-width: 480px) {
-    .wa-sticky {
-        padding: 16px;
-        font-size: 14px;
+    .wa-float {
+        width: 56px;
+        height: 56px;
         bottom: 15px;
         right: 15px;
     }
+
+    .wa-float img {
+        width: 28px;
+        height: 28px;
+    }
 }
+
 
 
 /* MOBILE OPTIMIZATION */
@@ -140,4 +160,5 @@ header input {
         height: 120px;
     }
 }
+
 
