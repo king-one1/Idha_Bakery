@@ -39,15 +39,24 @@ function tambahPesanan(index) {
     const kue = dataKue[index];
     const subtotal = kue.harga * jumlah;
 
-    daftarPesanan.push({
-        nama: kue.nama,
-        jumlah,
-        subtotal
-    });
+    // CEK APAKAH KUE SUDAH ADA
+    const existing = daftarPesanan.find(item => item.nama === kue.nama);
+
+    if (existing) {
+        existing.jumlah += jumlah;
+        existing.subtotal += subtotal;
+    } else {
+        daftarPesanan.push({
+            nama: kue.nama,
+            jumlah,
+            subtotal
+        });
+    }
 
     totalHarga += subtotal;
     tampilkanRingkasan();
 }
+
 
 function tampilkanRingkasan() {
     const ringkasan = document.getElementById("ringkasan");
@@ -68,22 +77,34 @@ function pesanWhatsApp() {
         return;
     }
 
-    const nomorWA = "6282130033360"; // nomor Anda (SUDAH BENAR)
+    const nama = document.getElementById("nama").value.trim();
+    const alamat = document.getElementById("alamat").value.trim();
 
-    let pesan = "Halo, saya ingin memesan kue Lebaran:\n";
+    if (!nama || !alamat) {
+        alert("Nama dan alamat wajib diisi!");
+        return;
+    }
+
+    const nomorWA = "628995289017"; // nomor ibu Anda
+
+    let pesan = `Halo, saya ingin memesan kue Lebaran.%0A%0A`;
+    pesan += `Nama   : ${nama}%0A`;
+    pesan += `Alamat : ${alamat}%0A%0A`;
+    pesan += `Pesanan:%0A`;
 
     daftarPesanan.forEach((item, i) => {
-        pesan += `${i + 1}. ${item.nama} - ${item.jumlah} (Rp${item.subtotal})\n`;
+        pesan += `${i + 1}. ${item.nama} x${item.jumlah} (Rp${item.subtotal})%0A`;
     });
 
-    pesan += `\nTotal sementara: Rp${totalHarga}\n`;
-    pesan += "Mohon konfirmasi ketersediaan. Terima kasih.";
+    pesan += `%0ATotal sementara: Rp${totalHarga}%0A`;
+    pesan += `Mohon konfirmasi ketersediaan. Terima kasih.`;
 
     const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
 
-    // ⬇️ INI KUNCI UTAMA (ANTI BLOKIR SAFARI)
+    // PALING AMAN UNTUK HP
     window.location.href = url;
 }
+
 
 
 
@@ -96,6 +117,7 @@ function filterKue() {
 }
 
 tampilkanKatalog();
+
 
 
 
