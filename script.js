@@ -1,8 +1,25 @@
 const dataKue = [
-    { nama: "Nastar Keju", harga: 85000, gambar: "nastar.jpg" },
-    { nama: "Kastengel", harga: 90000, gambar: "kastengel.jpg" },
-    { nama: "Putri Salju", harga: 80000, gambar: "putri-salju.jpg" },
-    { nama: "Lidah Kucing", harga: 75000, gambar: "lidah-kucing.jpg" },
+    { nama: "Nastar Keju", harga: 275000, gambar: "nastar.jpg" },
+    { nama: "Kastengel", harga: 275000, gambar: "kastengel.jpg" },
+    { nama: "Putri Salju", harga: 225000, gambar: "putri-salju.jpg" },
+    { nama: "Nastar Daun", harga: 300000, gambar: "nastar-daun.jpg" },
+    { nama: "Sultana", harga: 275000, gambar: "sultana.jpg" },
+    { nama: "Tosca", harga: 275000, gambar: "tosca.jpg" },
+    { nama: "Coffe Noir", harga: 275000, gambar: "coffe-noir.jpg" },
+    { nama: "Batang Kopi", harga: 225000, gambar: "batang-kopi.jpg" },
+    { nama: "GoodTime", harga: 250000, gambar: "goodtime.jpg" },
+    { nama: "SilverQueen", harga: 275000, gambar: "silverqueen.jpg" },
+    { nama: "Coklat Stik", harga: 275000, gambar: "coklat-stik.jpg" },
+    { nama: "Rambutan Cornflakes Putih", harga: 275000, gambar: "rambutan-putih.jpg" },
+    { nama: "Rambutan CornFlakes Coklat", harga: 275000, gambar: "rambutan-coklat.jpg" },
+    { nama: "Ararut Keju", harga: 225000, gambar: "ararut-keju.jpg" },
+    { nama: "Ararut Coklat Stik", harga: 225000, gambar: "ararut-coklat-stik.jpg" },
+    { nama: "Palm Suiker", harga: 250000, gambar: "palm-suiker.jpg" },
+    { nama: "Nuttela", harga: 275000, gambar: "nuttela.jpg" },
+    { nama: "Coklat Mente", harga: 250000, gambar: "coklat-mente.jpg" },
+    { nama: "Coklat Lapis ButterCream", harga: 275000, gambar: "coklat-lapis.jpg" },
+    { nama: "Spekuk", harga: 250000, gambar: "spekuk.jpg" },
+    { nama: "Wafer Tango", harga: 250000, gambar: "wafer-tango.jpg" },
     // tambah hingga 30 kue
 ];
 
@@ -117,6 +134,7 @@ function filterKue() {
 }
 
 tampilkanKatalog();
+
 
 
 
